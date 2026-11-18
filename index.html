@@ -1,21 +1,54 @@
-<!doctype html><html lang='th'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>รู้หุ้น Ruhoon . หุ้นอเมริกา ภาษาไทย</title><style>
-body{font-family:-apple-system,'Sarabun','Noto Sans Thai',sans-serif;margin:0;background:#0b0f14;color:#e8edf2}
-.wrap{max-width:720px;margin:0 auto;padding:24px 20px 60px}
-a{color:#6cb6ff}.muted{color:#8a96a3;font-size:14px}
-.card{background:#141b23;border:1px solid #223040;border-radius:14px;padding:18px 20px;margin:16px 0}
-.row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #1e2a36}
-.up{color:#3fb950}.down{color:#f85149}
-h1{margin:8px 0 4px}h2{font-size:18px;margin:0 0 10px}
-input,button{font-size:16px;padding:12px 14px;border-radius:10px;border:1px solid #2d3d4f;background:#0f151c;color:#e8edf2}
-button{background:#2f81f7;border:0;cursor:pointer}
-.disc{font-size:13px;color:#8a96a3;border-top:1px solid #223040;margin-top:32px;padding-top:12px}
-.tag{display:inline-block;font-size:12px;background:#223040;border-radius:6px;padding:2px 8px;margin-left:6px}
-</style></head><body><div class='wrap'>
-<p class='muted'>รู้หุ้น . Ruhoon</p><h1>เข้าใจหุ้นอเมริกาที่คุณถือ เป็นภาษาไทย</h1>
-<p>สรุปงบ ข่าวสำคัญ และวันประกาศงบ ของหุ้นในพอร์ตคุณ อ่านจบใน 3 นาที</p>
-<div class='card'><h2>ลงชื่อรอใช้งาน</h2>
-<form id="wl"><input type="email" name="email" required placeholder="อีเมลของคุณ" style="width:60%"> <button>ลงชื่อ</button></form>
-<script>document.getElementById("wl").addEventListener("submit",async e=>{e.preventDefault();const f=e.target;const body=new URLSearchParams({"entry.221653995":f.email.value});try{await fetch("https://docs.google.com/forms/d/e/1FAIpQLSeH0dr1942-ZrSdrinBBfu11tbMFMQgufh16DzCJGdjXFOLdQ/formResponse",{method:"POST",mode:"no-cors",body});f.innerHTML="<p>ลงชื่อแล้ว ขอบคุณครับ เปิดใช้เมื่อไหร่จะส่งอีเมลไปบอก</p>"}catch(_){f.insertAdjacentHTML("beforeend","<p>ส่งไม่สำเร็จ ลองใหม่อีกครั้งครับ</p>")}});</script>
-<p class='muted'>เปิดให้ใช้ฟรี แบบ Pro มีแจ้งเตือนทาง LINE</p></div>
-<div class='card'><h2>ลองดูหน้าหุ้น</h2><div class='row'><a href='s/aapl.html'>AAPL</a><span class='muted'>Apple Inc. . รายได้ไตรมาสล่าสุด 114.5 พันล้าน $</span></div><div class='row'><a href='s/nvda.html'>NVDA</a><span class='muted'>NVIDIA Corp . รายได้ไตรมาสล่าสุด 96.2 พันล้าน $</span></div><div class='row'><a href='s/tsla.html'>TSLA</a><span class='muted'>Tesla, Inc. . รายได้ไตรมาสล่าสุด 28.0 พันล้าน $</span></div></div>
-<div class='disc'>ข้อมูลเพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน ไม่มีการแนะนำให้ซื้อ ขาย หรือถือหลักทรัพย์ใด ตัวเลขมาจากเอกสารที่บริษัทยื่นต่อ SEC สหรัฐฯ (EDGAR)</div></div></body></html>
+<!doctype html><html lang='th'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>รู้หุ้น . หุ้นอเมริกา ภาษาไทย</title><link rel='preconnect' href='https://fonts.googleapis.com'><link rel='preconnect' href='https://fonts.gstatic.com' crossorigin><link href='https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600;700&display=swap' rel='stylesheet'><style>
+:root{--ink:#14202b;--muted:#5b6670;--line:#e3e8ec;--bg:#f6f8f9;--card:#fff;--accent:#1a7f5a;--down:#c0362c}
+*{box-sizing:border-box}
+body{font-family:'Noto Sans Thai','Sarabun','Leelawadee UI','Thonburi',system-ui,sans-serif;font-size:17px;line-height:1.7;
+ margin:0;background:var(--bg);color:var(--ink)}
+.wrap{max-width:680px;margin:0 auto;padding:12px 16px 48px}
+nav{display:flex;gap:4px;align-items:center;padding:8px 0 4px}
+nav .brand{font-weight:700;margin-right:auto;text-decoration:none;color:var(--ink)}
+nav a.tab{min-height:44px;display:inline-flex;align-items:center;padding:0 14px;border-radius:22px;text-decoration:none;color:var(--ink)}
+nav a.tab[aria-current]{background:#e2f1ea;color:var(--accent);font-weight:600}
+a{color:#0b62b5}
+.muted{color:var(--muted);font-size:15px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin:14px 0}
+h1{font-size:28px;line-height:1.4;margin:12px 0 4px}h2{font-size:18px;line-height:1.5;margin:0 0 8px}
+.hero{font-size:20px;line-height:1.6;font-weight:600}
+.big{font-size:30px;font-weight:700;line-height:1.3}
+.up{color:var(--accent);font-weight:600}.down{color:var(--down);font-weight:600}
+.metric{padding:12px 0;border-top:1px solid var(--line)}.metric:first-of-type{border-top:0}
+.metric .label{font-weight:600}
+details{margin-top:6px}summary{cursor:pointer;color:#0b62b5;min-height:44px;display:flex;align-items:center}
+label{display:block;font-weight:600;margin:14px 0 4px}
+.help{display:block;font-size:14px;color:var(--muted);margin-bottom:6px}
+input{width:100%;font:inherit;padding:10px 12px;border:1.5px solid #c5cdd3;border-radius:12px;background:#fff;min-height:48px}
+input[aria-invalid=true]{border-color:var(--down)}
+.err{color:var(--down);font-size:14px;min-height:1em}
+button{font:inherit;font-weight:600;min-height:48px;padding:8px 20px;border:0;border-radius:12px;background:var(--accent);color:#fff;cursor:pointer}
+button.ghost{background:transparent;color:var(--down);padding:8px 10px;min-height:44px}
+:focus-visible{outline:3px solid #0b62b5;outline-offset:2px}
+.row{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.list a{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:56px;padding:8px 0;text-decoration:none;color:var(--ink);border-top:1px solid var(--line)}
+.list a:first-child{border-top:0}
+.status{background:#e2f1ea;border-radius:12px;padding:10px 14px;margin-top:10px}
+.disc{font-size:14px;color:var(--muted);margin-top:28px;padding-top:12px;border-top:1px solid var(--line)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class='wrap'><nav><a class='brand' href='index.html'>รู้หุ้น</a><a class='tab' href='index.html' aria-current=page>หุ้น</a><a class='tab' href='portfolio.html'>พอร์ตของฉัน</a></nav><main id='main'>
+<h1>เข้าใจหุ้นอเมริกาที่คุณมี เป็นภาษาไทย</h1>
+<p>งบล่าสุดสรุปใน 1 ประโยค ตัวเลขมีที่มาทุกตัว และดูพอร์ตเป็นเงินบาท</p>
+<div class='card list'><a href='s/aapl.html'><span><b>AAPL</b> <span class='muted'>Apple</span><br><span class='muted'>เทียบกับช่วงเดียวกันปีก่อน บริษัทขายได้มากขึ้น 12% และกำไรเพิ่มขึ้น 12%</span></span><span aria-hidden='true'>›</span></a><a href='s/nvda.html'><span><b>NVDA</b> <span class='muted'>NVIDIA</span><br><span class='muted'>เทียบกับช่วงเดียวกันปีก่อน บริษัทขายได้มากขึ้น 106% และกำไรเพิ่มขึ้น 126%</span></span><span aria-hidden='true'>›</span></a><a href='s/tsla.html'><span><b>TSLA</b> <span class='muted'>Tesla</span><br><span class='muted'>เทียบกับช่วงเดียวกันปีก่อน บริษัทยอดขายทรงตัว แต่กำไรลดลง 43%</span></span><span aria-hidden='true'>›</span></a></div>
+<div class='card'><h2>ดูพอร์ตของคุณเป็นเงินบาท</h2><p>ใส่หุ้นที่มี ระบบคิดมูลค่าเป็นบาทให้ ข้อมูลเก็บในเครื่องคุณเท่านั้น</p>
+<a href='portfolio.html'><button>เปิดพอร์ตของฉัน</button></a></div>
+<div class='card'><h2>รอใช้เวอร์ชันเต็ม</h2><p>สรุปงบใหม่ภายใน 24 ชั่วโมง และแจ้งเตือนทาง LINE</p>
+<form id='wl' novalidate><label for='wl-email'>อีเมล</label>
+<span class='help'>ส่งแค่ตอนเปิดใช้งาน ไม่ส่งโฆษณา</span>
+<input id='wl-email' type='email' name='email' autocomplete='email' autocapitalize='off' required>
+<div class='err' id='wl-email-err' role='alert'></div><button>ลงชื่อรอใช้งาน</button></form>
+<script>
+document.getElementById('wl').addEventListener('submit',async e=>{e.preventDefault();const f=e.target,i=f.email,er=document.getElementById('wl-email-err');
+if(!i.checkValidity()){i.setAttribute('aria-invalid','true');er.textContent='อีเมลยังไม่ครบ ลองเช็คว่ามี @ และชื่อโดเมน เช่น name@gmail.com';return}
+i.removeAttribute('aria-invalid');er.textContent='';f.querySelector('button').textContent='กำลังส่ง...';
+try{await fetch('https://docs.google.com/forms/d/e/1FAIpQLSeH0dr1942-ZrSdrinBBfu11tbMFMQgufh16DzCJGdjXFOLdQ/formResponse',{method:'POST',mode:'no-cors',body:new URLSearchParams({'entry.221653995':i.value})});
+const s=document.createElement('div');s.className='status';s.textContent='ลงชื่อแล้ว เราจะส่งอีเมลไปที่ '+i.value+' ตอนเปิดใช้งาน';f.replaceWith(s)}
+catch(_){f.querySelector('button').textContent='ลงชื่อรอใช้งาน';er.textContent='ส่งไม่สำเร็จ เช็คอินเทอร์เน็ตแล้วกดอีกครั้ง'}});
+</script></div>
+</main><div class='disc'>ข้อมูลเพื่อการศึกษาเท่านั้น ไม่ใช่คำแนะนำการลงทุน ตัวเลขงบการเงินมาจากเอกสารที่บริษัทยื่นต่อ SEC สหรัฐฯ ราคาหุ้นและค่าเงินเป็นราคาปิดล่าสุดที่ดึงตอนสร้างหน้า ไม่ใช่ราคาสด</div></div></body></html>
