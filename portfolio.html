@@ -82,6 +82,6 @@ $('add').addEventListener('submit',e=>{e.preventDefault();const t=$('t').value.t
  if(r!==null&&!(r>20&&r<60)){err('r','ค่าเงินควรอยู่ราว 30 ถึง 40 บาท เช่น 34.25');ok=false}else err('r');
  if(!ok)return;const h=load().filter(x=>x.t!==t);h.push({t,n,c,r});save(h);render();e.target.reset();
  $('saved').innerHTML=`<div class=status>บันทึก ${t} ${n} หุ้นแล้ว</div>`});
-const add=new URLSearchParams(location.search).get('add');if(add){$('t').value=add;$('n').focus()}
+const add=new URLSearchParams(location.search).get('add');if(add){$('t').value=add;$('n').focus();history.replaceState(null,'',location.pathname)}
 render();
 </script></main><div class='disc'>ข้อมูลเพื่อการศึกษาเท่านั้น ไม่ใช่คำแนะนำการลงทุน ตัวเลขงบการเงินมาจากเอกสารที่บริษัทยื่นต่อ SEC สหรัฐฯ ราคาหุ้นและค่าเงินเป็นราคาปิดล่าสุดที่ดึงตอนสร้างหน้า ไม่ใช่ราคาสด</div></div></body></html>
