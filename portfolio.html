@@ -1,0 +1,87 @@
+<!doctype html><html lang='th'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>พอร์ตของฉัน . รู้หุ้น</title><link rel='preconnect' href='https://fonts.googleapis.com'><link rel='preconnect' href='https://fonts.gstatic.com' crossorigin><link href='https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600;700&display=swap' rel='stylesheet'><style>
+:root{--ink:#14202b;--muted:#5b6670;--line:#e3e8ec;--bg:#f6f8f9;--card:#fff;--accent:#1a7f5a;--down:#c0362c}
+*{box-sizing:border-box}
+body{font-family:'Noto Sans Thai','Sarabun','Leelawadee UI','Thonburi',system-ui,sans-serif;font-size:17px;line-height:1.7;
+ margin:0;background:var(--bg);color:var(--ink)}
+.wrap{max-width:680px;margin:0 auto;padding:12px 16px 48px}
+nav{display:flex;gap:4px;align-items:center;padding:8px 0 4px}
+nav .brand{font-weight:700;margin-right:auto;text-decoration:none;color:var(--ink)}
+nav a.tab{min-height:44px;display:inline-flex;align-items:center;padding:0 14px;border-radius:22px;text-decoration:none;color:var(--ink)}
+nav a.tab[aria-current]{background:#e2f1ea;color:var(--accent);font-weight:600}
+a{color:#0b62b5}
+.muted{color:var(--muted);font-size:15px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin:14px 0}
+h1{font-size:28px;line-height:1.4;margin:12px 0 4px}h2{font-size:18px;line-height:1.5;margin:0 0 8px}
+.hero{font-size:20px;line-height:1.6;font-weight:600}
+.big{font-size:30px;font-weight:700;line-height:1.3}
+.up{color:var(--accent);font-weight:600}.down{color:var(--down);font-weight:600}
+.metric{padding:12px 0;border-top:1px solid var(--line)}.metric:first-of-type{border-top:0}
+.metric .label{font-weight:600}
+details{margin-top:6px}summary{cursor:pointer;color:#0b62b5;min-height:44px;display:flex;align-items:center}
+label{display:block;font-weight:600;margin:14px 0 4px}
+.help{display:block;font-size:14px;color:var(--muted);margin-bottom:6px}
+input{width:100%;font:inherit;padding:10px 12px;border:1.5px solid #c5cdd3;border-radius:12px;background:#fff;min-height:48px}
+input[aria-invalid=true]{border-color:var(--down)}
+.err{color:var(--down);font-size:14px;min-height:1em}
+button{font:inherit;font-weight:600;min-height:48px;padding:8px 20px;border:0;border-radius:12px;background:var(--accent);color:#fff;cursor:pointer}
+button.ghost{background:transparent;color:var(--down);padding:8px 10px;min-height:44px}
+:focus-visible{outline:3px solid #0b62b5;outline-offset:2px}
+.row{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.list a{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:56px;padding:8px 0;text-decoration:none;color:var(--ink);border-top:1px solid var(--line)}
+.list a:first-child{border-top:0}
+.status{background:#e2f1ea;border-radius:12px;padding:10px 14px;margin-top:10px}
+.disc{font-size:14px;color:var(--muted);margin-top:28px;padding-top:12px;border-top:1px solid var(--line)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class='wrap'><nav><a class='brand' href='index.html'>รู้หุ้น</a><a class='tab' href='index.html'>หุ้น</a><a class='tab' href='portfolio.html' aria-current=page>พอร์ตของฉัน</a></nav><main id='main'>
+<h1>พอร์ตของฉัน</h1>
+<p class='muted'>ข้อมูลเก็บในเบราว์เซอร์เครื่องนี้เท่านั้น ไม่ส่งขึ้นเซิร์ฟเวอร์</p>
+<div class='card' id='summary' hidden><div class='muted'>มูลค่ารวมเป็นเงินบาท</div><div class='big' id='total'></div>
+<div id='gain'></div><div class='muted' id='asof'></div></div>
+<div class='card' id='holdings' hidden><h2>หุ้นที่มี</h2><div id='rows'></div></div>
+<div class='card'><h2>เพิ่มหุ้น</h2>
+<form id='add' novalidate>
+<label for='t'>ชื่อย่อหุ้น</label><span class='help'>ตอนนี้รองรับ AAPL, NVDA, TSLA</span>
+<input id='t' list='tickers' autocomplete='off' autocapitalize='characters' required><datalist id='tickers'><option value='AAPL'>Apple</option><option value='NVDA'>NVIDIA</option><option value='TSLA'>Tesla</option></datalist>
+<div class='err' id='t-err' role='alert'></div>
+<label for='n'>จำนวนหุ้น</label><span class='help'>ใส่เศษหุ้นได้ เช่น 0.5</span>
+<input id='n' inputmode='decimal' autocomplete='off' required><div class='err' id='n-err' role='alert'></div>
+<details><summary>ใส่ต้นทุน เพื่อดูกำไรขาดทุน (ไม่บังคับ)</summary>
+<label for='c'>ราคาเฉลี่ยที่ซื้อ (ดอลลาร์ต่อหุ้น)</label><span class='help'>ดูได้จากหน้าพอร์ตในแอปโบรกเกอร์</span>
+<input id='c' inputmode='decimal' autocomplete='off'><div class='err' id='c-err' role='alert'></div>
+<label for='r'>ค่าเงินตอนซื้อ (บาทต่อดอลลาร์)</label><span class='help'>ถ้าไม่ใส่ จะคิดด้วยค่าเงินวันนี้ และไม่รวมผลจากค่าเงิน</span>
+<input id='r' inputmode='decimal' autocomplete='off'><div class='err' id='r-err' role='alert'></div>
+</details>
+<p><button>บันทึก</button></p><div id='saved' role='status'></div></form></div>
+<script>const D={"fx": 33.94, "fxAt": "18/11 22:52", "px": {"AAPL": 352.205, "NVDA": 152.821, "TSLA": 380.06}};
+const KEY='ruhoon.holdings';
+const load=()=>JSON.parse(localStorage.getItem(KEY)||'[]');const save=h=>localStorage.setItem(KEY,JSON.stringify(h));
+const baht=v=>Math.round(v).toLocaleString('th-TH')+' บาท';
+const num=s=>{s=(s||'').replace(/,/g,'').trim();return s===''?null:Number(s)};
+const $=id=>document.getElementById(id);
+function err(id,msg){$(id).setAttribute('aria-invalid',msg?'true':'false');$(id+'-err').textContent=msg||''}
+function render(){const h=load();$('summary').hidden=$('holdings').hidden=!h.length;
+ let total=0,cost=0,costKnown=true;
+ $('rows').innerHTML=h.map((x,i)=>{const p=D.px[x.t],v=p*x.n*D.fx;total+=v;let g='';
+  if(x.c){const c=x.c*x.n*(x.r||D.fx);cost+=c;const d=v-c,up=d>=0;
+   g=`<div class=${up?'up':'down'}>${up?'▲ กำไร':'▼ ขาดทุน'} ${baht(Math.abs(d))}</div><div class=muted>${x.r?'รวมผลจากค่าเงินแล้ว':'ยังไม่รวมผลจากค่าเงิน'}</div>`}
+  else costKnown=false;
+  return `<div class=metric><div class=row><div><b>${x.t}</b> <span class=muted>${x.n} หุ้น</span><div class=big>${baht(v)}</div>
+  <div class=muted>$${p.toFixed(2)} ต่อหุ้น</div>${g}</div><button class=ghost data-i=${i} aria-label="ลบ ${x.t}">ลบ</button></div></div>`}).join('');
+ $('total').textContent=baht(total);
+ $('gain').innerHTML=!h.length?'':costKnown?(total>=cost?`<span class=up>▲ กำไรรวม ${baht(total-cost)}</span>`:`<span class=down>▼ ขาดทุนรวม ${baht(cost-total)}</span>`)
+  :'<span class=muted>ใส่ต้นทุนครบทุกตัว แล้วจะเห็นกำไรขาดทุนรวม</span>';
+ $('asof').textContent=`ใช้ค่าเงิน ${D.fx.toFixed(2)} บาท/ดอลลาร์ และราคาปิด ณ ${D.fxAt} น.`}
+$('rows').addEventListener('click',e=>{const b=e.target.closest('button[data-i]');if(!b)return;const h=load(),i=+b.dataset.i;const [gone]=h.splice(i,1);save(h);render();
+ $('saved').innerHTML=`<div class=status>ลบ ${gone.t} แล้ว <button class=ghost id=undo>เอาคืน</button></div>`;
+ $('undo').onclick=()=>{const h2=load();h2.splice(i,0,gone);save(h2);render();$('saved').textContent=''}});
+$('add').addEventListener('submit',e=>{e.preventDefault();const t=$('t').value.trim().toUpperCase();
+ const n=num($('n').value),c=num($('c').value),r=num($('r').value);let ok=true;
+ if(!D.px[t]){err('t',t?`ยังไม่มีข้อมูล ${t} ตอนนี้รองรับ ${Object.keys(D.px).join(', ')}`:'ใส่ชื่อย่อหุ้น เช่น AAPL');ok=false}else err('t');
+ if(!(n>0)){err('n','ใส่จำนวนหุ้นเป็นตัวเลขมากกว่า 0 เช่น 10 หรือ 0.5');ok=false}else err('n');
+ if(c!==null&&!(c>0)){err('c','ราคาต้องเป็นตัวเลขมากกว่า 0 เช่น 180.50');ok=false}else err('c');
+ if(r!==null&&!(r>20&&r<60)){err('r','ค่าเงินควรอยู่ราว 30 ถึง 40 บาท เช่น 34.25');ok=false}else err('r');
+ if(!ok)return;const h=load().filter(x=>x.t!==t);h.push({t,n,c,r});save(h);render();e.target.reset();
+ $('saved').innerHTML=`<div class=status>บันทึก ${t} ${n} หุ้นแล้ว</div>`});
+const add=new URLSearchParams(location.search).get('add');if(add){$('t').value=add;$('n').focus()}
+render();
+</script></main><div class='disc'>ข้อมูลเพื่อการศึกษาเท่านั้น ไม่ใช่คำแนะนำการลงทุน ตัวเลขงบการเงินมาจากเอกสารที่บริษัทยื่นต่อ SEC สหรัฐฯ ราคาหุ้นและค่าเงินเป็นราคาปิดล่าสุดที่ดึงตอนสร้างหน้า ไม่ใช่ราคาสด</div></div></body></html>
